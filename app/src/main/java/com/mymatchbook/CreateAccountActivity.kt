@@ -3,7 +3,9 @@ package com.mymatchbook
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
@@ -16,10 +18,12 @@ class CreateAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
-        val btnCreateAccount : MaterialButton = findViewById(R.id.btn_createAccount)
+
+        val btnCreateAccount : Button = findViewById(R.id.btn_createAccount)
         val etEmail : EditText = findViewById(R.id.et_email)
         val etPassword : EditText = findViewById(R.id.et_password)
-        val etConfirmPassword : EditText = findViewById(R.id.et_passwordConfirm)
+        val etConfirmPassword : EditText = findViewById(R.id.et_confirmPassword)
+        val tvAlreadyHaveAccount : TextView = findViewById(R.id.tv_login)
 
         auth = FirebaseAuth.getInstance()
 
@@ -46,7 +50,13 @@ class CreateAccountActivity : AppCompatActivity() {
                 ).show()
             }
         }
+
+        // On Click Listener that takes the user back to the login page if they already have an account
+        tvAlreadyHaveAccount.setOnClickListener(){
+            goToLoginActivity()
+        }
     }
+
 
     private fun createAccount(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
@@ -61,7 +71,7 @@ class CreateAccountActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                         // After successful account creation, go back to the login activity
-                        goToMainActivity()
+                        goToLoginActivity()
                     } else {
                         // Account creation failed
                         // You can handle specific failure cases here, such as invalid email format, weak password, etc.
@@ -74,8 +84,15 @@ class CreateAccountActivity : AppCompatActivity() {
     }
 
     // Method that takes the user back to the main activity if they have an account
-    private fun goToMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
+    private fun goToLoginActivity(){
+        val intent = Intent(this@CreateAccountActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    // Method that takes user to Main Activity
+    private fun goToMainActivity(){
+        val intent = Intent(this@CreateAccountActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
     }

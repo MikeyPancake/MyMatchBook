@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "942631767343",
+    "firebase_url": "https://my-match-book-default-rtdb.firebaseio.com",
     "project_id": "my-match-book",
     "storage_bucket": "my-match-book.appspot.com"
   },
@@ -14,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "942631767343-e94lkk74jh1b483m9iu7779t9au37n9u.apps.googleusercontent.com",
+          "client_id": "942631767343-6te5j5eb8tucgf4mmg556u4nvul3irn8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mymatchbook",
+            "certificate_hash": "9bdd5d1a4b122cc23f4014a91ae266d176c00cbc"
+          }
+        },
+        {
+          "client_id": "942631767343-r2a52dvclufjjnoank54sfilokoku4qc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

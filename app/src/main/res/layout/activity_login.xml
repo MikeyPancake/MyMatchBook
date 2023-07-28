@@ -7,7 +7,7 @@
     android:background="@drawable/bg_blk_grey_180_gradient"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".CreateAccountActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/iv_appIcon"
@@ -35,7 +35,7 @@
         android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/tv_createAccountText"
+        android:id="@+id/tv_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_appName"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Register New Account"
+        android:text="Login Below"
         android:textColor="@color/white"
         android:textSize="25sp" />
 
@@ -57,7 +57,7 @@
         android:hint="Email"
         app:hintTextColor="@color/white"
         app:startIconDrawable="@drawable/ic_email"
-        app:layout_constraintTop_toBottomOf="@id/tv_createAccountText"
+        app:layout_constraintTop_toBottomOf="@id/tv_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -97,33 +97,8 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_confirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Confirm Password"
-        app:hintTextColor="@color/white"
-        app:startIconDrawable="@drawable/ic_information"
-        app:layout_constraintTop_toBottomOf="@id/til_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <EditText
-            android:id="@+id/et_confirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/tb_grey"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
-        android:id="@+id/btn_createAccount"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -131,46 +106,78 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/black"
-        android:text="Create Account"
+        android:text="Login"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/til_confirmPassword"
+        app:layout_constraintTop_toBottomOf="@id/til_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <LinearLayout
-        android:id="@+id/ll_backToLogin"
+        android:id="@+id/ll_createAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_createAccount"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
 
         <TextView
-            android:id="@+id/tv_haveAnAccount"
+            android:id="@+id/tv_createAccountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Have an Account?"
+            android:text="New Account?"
             android:padding="5dp"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/tv_login"
+            android:id="@+id/tv_createAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:onClick="goToLoginActivity"
-            android:text="Login"
+            android:onClick="goToCreateAccountActivity"
+            android:text="Register Here"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ll_createAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/tv_resetPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:padding="5dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_resetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:onClick="goToPasswordResetActivity"
+            android:text="Reset Here"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

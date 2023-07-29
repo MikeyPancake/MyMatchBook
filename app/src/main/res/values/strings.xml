@@ -2,4 +2,5 @@
     <string name="app_name">My Match Book</string>
     <string name="_password">Password</string>
     <string name="_email">Email</string>
+    <string name="_resetPasswordMessage">Enter your email below to reset your password. We will send an email with instruction on resetting your password</string>
 </resources>

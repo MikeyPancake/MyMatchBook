@@ -4,9 +4,7 @@
     <!-- Adds permission to access internet from device to sign-in to google -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--android:name=".MyMatchBookClasses"-->
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,9 +15,20 @@
         android:theme="@style/Theme.MyMatchBook"
         tools:targetApi="31">
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".AnalyzeMatchActivity"
             android:exported="false" />
-        <!-- Splash activity is opened when app is launched -->
+        <activity
+            android:name=".ViewMatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeleteMatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddMatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" /> <!-- Splash activity is opened when app is launched -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">

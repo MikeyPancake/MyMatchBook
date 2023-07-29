@@ -34,20 +34,16 @@ class CreateAccountActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
             val confirmPassword = etConfirmPassword.text.toString()
 
+            // Checks if either email, password, confirmation password are empty
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                // Checks if password and confirmation password are the same
                 if (password == confirmPassword){
                     createAccount(email, password)
                 }else{
-                    Toast.makeText(this,
-                        "Password Does Not Match",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    myToast("Password Does Not Match")
                 }
             } else {
-                Toast.makeText(this,
-                    "Please Input Required Fields",
-                    Toast.LENGTH_LONG
-                ).show()
+                myToast("Please Input Required Fields")
             }
         }
 
@@ -57,7 +53,7 @@ class CreateAccountActivity : AppCompatActivity() {
         }
     }
 
-
+    // Method that creates a user account using Firebase
     private fun createAccount(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
@@ -66,19 +62,13 @@ class CreateAccountActivity : AppCompatActivity() {
                         // Account creation success
                         val user = auth.currentUser
                         //TODO - Delete once test are successfull
-                        Toast.makeText(this,
-                            "Create Account Success",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        myToast("Create Account Success")
                         // After successful account creation, go back to the login activity
                         goToLoginActivity()
                     } else {
                         // Account creation failed
                         // You can handle specific failure cases here, such as invalid email format, weak password, etc.
-                        Toast.makeText(this,
-                            "Create Account Failed",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        myToast("Create Account Failed")
                     }
                 }
     }
@@ -97,6 +87,10 @@ class CreateAccountActivity : AppCompatActivity() {
         finish()
     }
 
+    // Toast Method
+    private fun myToast(message : String){
+        Toast.makeText(this, "$message", Toast.LENGTH_LONG).show()
+    }
 
 
 }

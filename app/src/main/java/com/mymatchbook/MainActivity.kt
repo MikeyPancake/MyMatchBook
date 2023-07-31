@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private var email : String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +30,12 @@ class MainActivity : AppCompatActivity() {
         val btnLogout : Button = findViewById(R.id.btn_logout)
 
         // retrieves User's email from login screen and displays it in the welcome msg
-        val email = intent.getStringExtra("EMAIL")
+        email = intent.getStringExtra(Constants.USER_EMAIL)
         tvEmail.text = "$email"
 
         // On click function that takes the user to an activity
         ivAddMatch.setOnClickListener{
-            startActivity(Intent(this@MainActivity, AddMatchActivity::class.java))
-        }
+            createMatch()}
 
         ivDeleteMatch.setOnClickListener{
             startActivity(Intent(this@MainActivity, DeleteMatchActivity::class.java))
@@ -50,8 +50,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLogout.setOnClickListener{
+            myToast("You have been logged out!")
             goToLoginActivity()
         }
+    }
+
+    // This function will create a match in the firebase database and set the data
+    private fun createMatch(){
+        val intent = Intent(this@MainActivity, AddMatchActivity::class.java)
+        intent.putExtra(Constants.USER_EMAIL, email)
+        startActivity(intent)
     }
 
     // Method that allows the user to logout and go back to the login screen
@@ -61,5 +69,8 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
-
+    // Method for Toasts
+    private fun myToast(message : String){
+        Toast.makeText(this, "$message", Toast.LENGTH_LONG).show()
+    }
 }

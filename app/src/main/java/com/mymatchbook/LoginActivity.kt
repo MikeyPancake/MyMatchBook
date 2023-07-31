@@ -12,18 +12,21 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
+    // Firebase variable for authentication
     private lateinit var auth: FirebaseAuth
-    //Email declared a global variable so that other methods can access it
+    // Email declared a global variable so that other methods can access it
     private lateinit var etEmail: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Variables
         etEmail = findViewById(R.id.et_email)
         val etPassword : TextView = findViewById(R.id.et_password)
         val loginButton : Button = findViewById(R.id.btn_login)
 
+        // Firebase Instance of authentication
         auth = FirebaseAuth.getInstance()
 
         // On click listener that checks if email and/or password are entered
@@ -81,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
     private fun goToMainActivity(){
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         // intent that sends the User's Email address to the main activity
-        intent.putExtra("EMAIL", etEmail.text.toString())
+        intent.putExtra(Constants.USER_EMAIL, etEmail.text.toString())
         startActivity(intent)
         finish()
     }

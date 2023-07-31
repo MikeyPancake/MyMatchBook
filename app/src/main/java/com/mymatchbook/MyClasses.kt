@@ -1,33 +1,35 @@
 package com.mymatchbook
 
-
-data class Competitions(
-    val competitionID: String = " ",
+data class Users(
     val name: String = "",
-    val matchType: String = "",
-    val competitionMatches: List<Matches> = emptyList()
+    val email: String = "",
+    val competitions: List<CompetitionType> = emptyList()
+)
+data class CompetitionType(
+    val competitionTypeID: String = " ",
+    var matches: List<Match> = emptyList(),
     )
 
-data class Matches(
-    val matchId: String = "",
-    val matchName: String = "",
-    val matchDate: String = "",
-    val matchLocation: String = " ",
-    val matchType: String = " ",
-    val season: String = "",
-    val totalCompetitors: Int = 0,
-    val winnersScore: Int = 0,
-    val userScore: Int = 0,
-    val matchStages: List<Stage> = emptyList()
+data class Match(
+    val matchId: String? = null,
+    val matchName: String? = null,
+    val matchDate: String? = null,
+    val matchLocation: String? = null,
+    val matchType: String? = null,
+    val matchSeason: String? = null,
+    val totalCompetitors: Int? = null,
+    val winnersScore: Int? = null,
+    val userScore: Int? = null,
+    val matchStages: List<Stages> = emptyList()
     )
 
-data class Stage(
+data class Stages(
     val stageId: String = "",
-    val name: String = "",
-    val stageTargets: List<Target> = emptyList()
+    val stageName: String = "",
+    val stageTargets: List<Targets> = emptyList()
     )
 
-data class Target(
+data class Targets(
     val targetId: String = "",
     val targetDistance: Int = 0,
     val targetSize: Double = 0.0,

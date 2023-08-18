@@ -1,3 +1,19 @@
+/*
+buildscript {
+    repositories {
+        google() // Add this line to include the Google Maven repository
+        // Add other repositories if needed
+        // jcenter()
+    }
+    dependencies {
+        // Android Gradle plugin
+        classpath 'com.android.tools.build:gradle:4.3.3' // Replace with the appropriate version
+        // Google Services plugin
+        classpath 'com.google.gms:google-services:4.3.15' // Replace with the appropriate version
+    }
+}
+ */
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id 'com.android.application' version '8.0.2' apply false

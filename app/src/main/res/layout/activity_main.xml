@@ -128,7 +128,7 @@
             android:id="@+id/tv_viewMatchText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View Matches"
+            android:text="View/Edit Matches"
             android:textColor="@color/white"
             android:textSize="15dp"
             />
